@@ -6,7 +6,7 @@ import Constants from 'expo-constants';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Weather zipCode="90110" />
+      <Weather zipCode="84190" />
       <StatusBar style="auto" />
     </View>
   );
