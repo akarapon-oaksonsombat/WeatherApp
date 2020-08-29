@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Button } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import Forecast from './Forecast';
 import { useNavigation } from "@react-navigation/native";
 export default function Weather(props) {
@@ -39,13 +39,8 @@ export default function Weather(props) {
     }, [props.zipCode])
     return (
         <View>
+            <StatusBar barStyle="auto" />
             <Forecast {...forecastInfo} />
-            <Button
-                onPress={() => navigation.push('Setting')}
-                title="Change city"
-                color="#841584"
-                accessibilityLabel="Learn more about this purple button"
-            />
         </View >
     );
 }

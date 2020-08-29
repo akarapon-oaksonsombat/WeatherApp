@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StatusBar, StyleSheet, Dimensions } from 'react-native';
 import { FlatList, TouchableHighlight } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
-import WeatherScreen from './WeatherScreen';
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 const availableZipItems = [
@@ -13,8 +12,7 @@ const availableZipItems = [
     { place: 'Chonburi', code: '20000' },
 ]
 const ZipItem = ({ place, code, navigation }) => (
-    // onPress={() => navigation.navigate('Home', { zipCode: code })}
-    <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" onPress={() => navigation.goBack('Weather', { zipCode: code })}>
+    <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" onPress={() => navigation.navigate('Weather', { zipCode: code })}>
         <View style={styles.box}>
             <Text style={styles.city}>{place}</Text>
             <Text style={styles.description}>  ({code})</Text>
@@ -27,7 +25,7 @@ export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
         <View>
-            <StatusBar barStyle="dark-content" />
+            <StatusBar barStyle="auto" />
             <FlatList
                 data={availableZipItems}
                 keyExtractor={_keyExtractor}
@@ -41,7 +39,6 @@ const styles = StyleSheet.create({
     box: {
         paddingTop: 0,
         paddingLeft: 0,
-        //justifyContent: "space-between",
         flexDirection: 'row',
         alignItems: "center",
         height: 60,

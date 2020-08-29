@@ -1,7 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, StatusBar } from 'react-native';
-import Tile from './Tile';
-import WeatherIcon from './WeatherIcon';
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 export default function Forecast(props) {
@@ -30,8 +28,6 @@ export default function Forecast(props) {
     }
 
     // set url-link to image
-
-    // var img_url = `http://openweathermap.org/img/wn/${props.icon}@4x.png`
     var img_url = `https://raw.githubusercontent.com/akarapon-oaksonsombat/ImageResource/master/${props.icon}.png`
 
     // display content
@@ -39,8 +35,7 @@ export default function Forecast(props) {
 
         <View>
 
-
-            <StatusBar barStyle="dark-content" />
+            <StatusBar barStyle="auto" />
             {/* Box */}
             <View style={styles.box} backgroundColor={setBoxColor(props.main, props.icon)}>
                 {/* <Text style={styles.topic} >Weather</Text> */}
@@ -55,13 +50,6 @@ export default function Forecast(props) {
                 </Text>
             </View>
 
-            {/* Tile */}
-            {/* <View>
-                <Tile zipCode="90110" />
-                <Tile zipCode="91130" />
-                <Tile zipCode="91120" />
-                <Tile zipCode="10210" />
-            </View> */}
 
         </View >
 
@@ -72,7 +60,8 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         flexDirection: 'column',
         alignItems: "center",
-        height: width,
+
+        height: height,
     },
     topic: {
         paddingTop: 50,
@@ -89,12 +78,10 @@ const styles = StyleSheet.create({
     },
     temperature: {
         fontSize: 22,
-        // fontWeight: "bold",
         color: "#ffffff",
     },
     description: {
         fontSize: 20,
-        // fontWeight: "bold",
         color: "#ffffff",
     },
     weatherIcon: {
