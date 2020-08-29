@@ -28,9 +28,6 @@ export default function ZipCodeScreen() {
     return (
         <View>
             <StatusBar barStyle="dark-content" />
-            {/* Statusbar setting */}
-            {/* <StatusBar translucent backgroundColor="transparent" /> */}
-
             <FlatList
                 data={availableZipItems}
                 keyExtractor={_keyExtractor}
